@@ -1,0 +1,56 @@
+<div class="pagetitle">
+  <h1>Admin</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/']">Admin</a></li>
+      <li class="breadcrumb-item active">List Publishers</li>
+
+    </ol>
+  </nav>
+</div>
+
+
+<section class="section">
+  <div class="row">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Publisher</h5>
+
+        <table class="table table-bordered" *ngIf="publishers != null;else elseBlock">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col" >Name</th>
+              <th scope="col">Name Short</th>
+              <th scope="col">Location</th>
+              <th scope="col">Contact Number</th>
+              <th scope="col">Created At</th>
+              <th scope="col">Updated At</th>
+              <th scope="col" colspan="2">Action</th>
+            </tr>
+          </thead>
+
+          <tbody >
+            <tr *ngFor="let publisher of publishers">
+              <th scope="row">{{publisher.id}}</th>
+              <td>{{publisher.name}}</td>
+              <td>{{publisher.nameShort}}</td>
+              <td>{{publisher.location}}</td>
+              <td>{{publisher.contactNumber}}</td>
+              <td>{{publisher.createdAt}}</td>
+              <td>{{publisher.updatedAt}}</td>
+              <td>
+                <button type="button" class="btn btn-danger" (click)="deleted(publisher.id)"><i class="bi bi-trash-fill"></i></button> |
+                <a [routerLink]="['/editpublisher',{id: publisher.id}]"><button type="button" class="btn btn-success"><i class="bi bi-pencil-fill"></i></button></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ng-template #elseBlock>
+            <p-progressSpinner [style]="{'display':'flex','width':'10%'}"></p-progressSpinner>
+        </ng-template>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,45 @@
+<h3>Add Publisher</h3>
+<form [formGroup]="publisherFormGroup">
+  Name: &nbsp;<input type="text" pInputText formControlName="name"/>
+  <div *ngIf="publisherFormGroup.get('name').touched">
+    <div *ngIf="publisherFormGroup.hasError('required',['name'])">
+      Name is required
+    </div>
+
+  </div>
+  <br>
+  <br>
+  Name short: &nbsp;<input type="text" pInputText formControlName="nameshort"/>
+  <div *ngIf="publisherFormGroup.get('nameshort').touched">
+    <div *ngIf="publisherFormGroup.hasError('required',['nameshort'])">
+      Name short is required
+    </div>
+
+  </div>
+  <br>
+  <br>
+  Location: &nbsp;<input type="text" pInputText formControlName="location"/>
+  <div *ngIf="publisherFormGroup.get('location').touched">
+    <div *ngIf="publisherFormGroup.hasError('required',['location'])">
+      Location is required
+    </div>
+
+  </div>
+  <br>
+  <br>
+  Contact Number: &nbsp;<input type="text" pInputText formControlName="contactnumber"/>
+  <div *ngIf="publisherFormGroup.get('contactnumber').touched">
+    <div *ngIf="publisherFormGroup.hasError('required',['contactnumber'])">
+      Contact Number is required
+    </div>
+    <!-- <div *ngIf="publisherFormGroup.hasError('maxLength',['contactnumber'])">
+      Max length is 10
+    </div> -->
+    <div *ngIf="publisherFormGroup.hasError('pattern',['contactnumber'])">
+      Contact Number is invalid
+    </div>
+  </div>
+  <br>
+  <br>
+  <button type="submit" (click)="save()">Save</button>
+</form>

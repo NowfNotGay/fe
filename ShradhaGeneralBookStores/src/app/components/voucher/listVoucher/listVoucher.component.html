@@ -1,0 +1,58 @@
+<div class="pagetitle">
+  <h1>Admin</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/']">Admin</a></li>
+      <li class="breadcrumb-item active">List Voucher</li>
+
+    </ol>
+  </nav>
+</div>
+
+
+<section class="section">
+  <div class="row">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Voucher</h5>
+
+        <table class="table table-bordered" *ngIf="vouchers != null;else elseBlock">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col" >Name</th>
+              <th scope="col" >VarityCode</th>
+              <th scope="col" >Discount</th>
+              <th scope="col" >Condition</th>
+              <th scope="col" >Quantity</th>
+              <th scope="col">Created At</th>
+              <th scope="col">Updated At</th>
+              <th scope="col" colspan="2">Action</th>
+            </tr>
+          </thead>
+
+          <tbody >
+            <tr *ngFor="let voucher of vouchers">
+              <th scope="row">{{voucher.id}}</th>
+              <td>{{voucher.name}}</td>
+              <td>{{voucher.varityCode}}</td>
+              <td>{{voucher.discount}}</td>
+              <td>{{voucher.condition}}</td>
+              <td>{{voucher.quantity}}</td>
+              <td>{{voucher.createdAt}}</td>
+              <td>{{voucher.updatedAt}}</td>
+              <td>
+                <button type="button" class="btn btn-danger" (click)="deleted(voucher.id)"><i class="bi bi-trash-fill"></i></button> |
+                <a [routerLink]="['/editvoucher',{id: voucher.id}]"><button type="button" class="btn btn-success"><i class="bi bi-pencil-fill"></i></button></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ng-template #elseBlock>
+            <p-progressSpinner [style]="{'display':'flex','width':'10%'}"></p-progressSpinner>
+        </ng-template>
+      </div>
+    </div>
+
+  </div>
+</section>

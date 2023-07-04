@@ -1,0 +1,56 @@
+<div class="pagetitle">
+  <h1>Admin</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/']">Admin</a></li>
+      <li class="breadcrumb-item active">List Catrgories</li>
+
+    </ol>
+  </nav>
+</div>
+
+
+<section class="section">
+  <div class="row">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Category</h5>
+
+        <table class="table table-bordered" *ngIf="accounts != null;else elseBlock">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Avatar</th>
+              <th scope="col" >First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Role</th>
+              <th scope="col">Created At</th>
+              <th scope="col">Updated At</th>
+              <th scope="col" colspan="2">Action</th>
+            </tr>
+          </thead>
+
+          <tbody >
+            <tr *ngFor="let account of accounts">
+              <th scope="row">{{account.id}}</th>
+              <td>{{account.firstName}}</td>
+              <td>{{account.lastName}}</td>
+              <td>{{account.createdAt}}</td>
+              <td>{{account.updatedAt}}</td>
+
+              <td>
+                <button type="button" class="btn btn-danger" (click)="deleted(account.id)"><i class="bi bi-trash-fill"></i></button> |
+                <a [routerLink]="['/editcategory',{id: account.id}]"><button type="button" class="btn btn-success"><i class="bi bi-pencil-fill"></i></button></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ng-template #elseBlock>
+            <p-progressSpinner [style]="{'display':'flex','width':'10%'}"></p-progressSpinner>
+        </ng-template>
+      </div>
+    </div>
+
+  </div>
+</section>

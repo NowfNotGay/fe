@@ -1,0 +1,70 @@
+<h3>Add Voucher</h3>
+<form [formGroup]="voucherFormGroup">
+  Name: &nbsp;<input type="text" pInputText formControlName="name"/>
+  <div *ngIf="voucherFormGroup.get('name').touched">
+    <div *ngIf="voucherFormGroup.hasError('required',['name'])">
+      Name is required
+    </div>
+
+  </div>
+  <br>
+  <br>
+  Varitycode: &nbsp;<input type="text" pInputText formControlName="varitycode"/>
+  <div *ngIf="voucherFormGroup.get('varitycode').touched">
+    <div *ngIf="voucherFormGroup.hasError('required',['varitycode'])">
+      Varitycode is required
+    </div>
+
+  </div>
+  <br>
+  <br>
+  Discount: &nbsp;<p-inputNumber   formControlName="discount"></p-inputNumber>
+  <div *ngIf="voucherFormGroup.get('discount').touched">
+    <div *ngIf="voucherFormGroup.hasError('required',['discount'])">
+      Discount is required
+    </div>
+
+  </div>
+  <br>
+  <br>
+  Condition: &nbsp;<p-inputNumber   formControlName="condition"></p-inputNumber>
+  <div *ngIf="voucherFormGroup.get('condition').touched">
+    <div *ngIf="voucherFormGroup.hasError('required',['condition'])">
+      Condition is required
+    </div>
+
+  </div>
+  <br>
+  <br>
+  Quantity: &nbsp;<p-inputNumber   formControlName="quantity"></p-inputNumber>
+  <div *ngIf="voucherFormGroup.get('quantity').touched">
+    <div *ngIf="voucherFormGroup.hasError('required',['quantity'])">
+      Quantity is required
+    </div>
+
+  </div>
+  <br>
+  <br>
+  Time Start: &nbsp;<p-calendar   formControlName="timestart"></p-calendar>
+  <div *ngIf="voucherFormGroup.get('timestart').touched">
+    <div *ngIf="voucherFormGroup.hasError('required',['timestart'])">
+      Time Start is required
+    </div>
+
+  </div>
+  <br>
+  <br>
+  Time End: &nbsp;<p-calendar  formControlName="timeend"></p-calendar>
+  <div *ngIf="voucherFormGroup.get('timeend').touched">
+    <div *ngIf="voucherFormGroup.hasError('required',['timeend'])">
+      Time End is required
+    </div>
+
+  </div>
+  <br>
+  <br>
+  Status: &nbsp;<input type="checkbox"  formControlName="status">
+  <br>
+  <br>
+  <button type="submit" (click)="save()">Save</button>
+</form>

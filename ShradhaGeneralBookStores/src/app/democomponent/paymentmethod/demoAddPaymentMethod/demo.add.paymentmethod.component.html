@@ -1,0 +1,14 @@
+<h3>Add Payment Method</h3>
+<form [formGroup]="paymentmethodFormGroup">
+  Name: &nbsp;<input type="text" pInputText formControlName="name"/>
+  <div *ngIf="paymentmethodFormGroup.get('name').touched">
+    <div *ngIf="paymentmethodFormGroup.hasError('required',['name'])">
+      Name is required
+    </div>
+
+  </div>
+  <br>
+  <br>
+  <button type="submit" (click)="save()">Save</button>
+ 
+</form>

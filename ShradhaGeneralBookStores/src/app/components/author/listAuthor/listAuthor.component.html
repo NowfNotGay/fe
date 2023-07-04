@@ -1,0 +1,50 @@
+<div class="pagetitle">
+  <h1>Admin</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/']">Admin</a></li>
+      <li class="breadcrumb-item ">List Authors</li>
+    </ol>
+  </nav>
+</div>
+
+<section class="section">
+  <div class="row">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Author</h5>
+
+        <table class="table table-bordered" *ngIf="authors != null;else elseBlock">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col" >Name Author</th>
+              <th scope="col">Year Of Birth</th>
+              <th scope="col">Created At</th>
+              <th scope="col">Updated At</th>
+              <th scope="col" colspan="2">Action</th>
+            </tr>
+          </thead>
+
+          <tbody >
+            <tr *ngFor="let author of authors">
+              <th scope="row">{{author.id}}</th>
+              <td>{{author.name}}</td>
+              <td>{{author.yearOfBirth}}</td>
+              <td>{{author.createdAt}}</td>
+              <td>{{author.updatedAt}}</td>
+              <td>
+                <button type="button" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button> |
+                <a [routerLink]="['/editauthor',{id: author.id}]"><button type="button" class="btn btn-success"><i class="bi bi-pencil-fill"></i></button></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ng-template #elseBlock>
+            <p-progressSpinner [style]="{'display':'flex','width':'10%'}"></p-progressSpinner>
+        </ng-template>
+      </div>
+    </div>
+
+  </div>
+</section>

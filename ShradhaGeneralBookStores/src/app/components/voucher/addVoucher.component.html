@@ -1,0 +1,79 @@
+<div class="pagetitle">
+  <h1>Admin</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/']">Admin</a></li>
+      <li class="breadcrumb-item ">List Vouchers</li>
+      <li class="breadcrumb-item active">Add Voucher</li>
+
+    </ol>
+  </nav>
+</div>
+
+<section class="section">
+  <div class="row">
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Add Voucher</h5>
+
+        <!-- Multi Columns Form -->
+        <form class="row g-3" [formGroup]="voucherFormGroup">
+          <div class="col-md-12">
+            <label for="inputName5" class="form-label">Voucher Name</label>
+            <input type="text" pInputText formControlName="name" [style]="{'width':'100%'}"/>
+          </div>
+          
+          <div class="col-md-12">
+            <label for="inputName5" class="form-label">Varitycode</label>
+            <input type="text" pInputText formControlName="varityCode" [style]="{'width':'100%'}"/>
+          </div>
+
+
+          <div class="col-md-12">
+            <label for="inputName5" class="form-label">Discount</label>
+            <br/>
+            <p-inputNumber formControlName="discount" ></p-inputNumber>
+          </div>
+
+          <div class="col-md-12">
+            <label for="inputName5" class="form-label">Condition</label>
+            <br/>
+            <p-inputNumber formControlName="condition"></p-inputNumber>
+          </div>
+
+          <div class="col-md-12">
+            <label for="inputName5" class="form-label">Quantity</label>
+            <br/>
+            <p-inputNumber formControlName="quantity"></p-inputNumber>
+          </div>
+
+          <div class="col-md-12">
+            <label for="inputName5" class="form-label">Time Start</label>
+            <br/>
+            <p-calendar   formControlName="timeStart"></p-calendar>
+          </div>
+
+          <div class="col-md-12">
+            <label for="inputName5" class="form-label">Time End</label>
+            <br/>
+            <p-calendar   formControlName="timeEnd"></p-calendar>
+          </div>
+
+          <div class="col-md-12">
+            <label for="inputName5" class="form-label">Status</label>
+            <input type="checkbox"  formControlName="status">
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" (click)="save()">Submit</button> &nbsp;
+            <button type="reset" class="btn btn-secondary" (click)="reset()">Reset</button>
+          </div>
+        </form><!-- End Multi Columns Form -->
+
+      </div>
+    </div>
+
+
+  </div>
+</section>

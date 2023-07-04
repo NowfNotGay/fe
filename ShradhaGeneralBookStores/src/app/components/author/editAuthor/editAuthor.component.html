@@ -1,0 +1,49 @@
+<div class="pagetitle">
+  <h1>Admin</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/']">Admin</a></li>
+      <li class="breadcrumb-item ">List Authors</li>
+      <li class="breadcrumb-item active">Add Authors</li>
+
+    </ol>
+  </nav>
+</div>
+
+<section class="section">
+  <div class="row">
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Add Author</h5>
+
+        <!-- Multi Columns Form -->
+        <form class="row g-3" [formGroup]="authorFormGroup">
+          <div class="col-md-12">
+            <label for="inputName5" class="form-label">Your Name</label>
+            <input type="text" pInputText formControlName="name" [style]="{'width':'100%'}"/>
+          </div>
+
+          <div class="col-md-12">
+            <label for="inputName5" class="form-label">Biography</label>
+            <p-editor formControlName="biography" [style]="{ height: '100%', width: '100%' }"></p-editor>
+          </div>
+
+          <div class="col-md-12">
+            <label for="inputName5" class="form-label">YearOfBirth</label>
+            <input type="number" pInputText formControlName="yearOfBirth" [style]="{'width':'100%'}"/>
+
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" (click)="save()">Submit</button> &nbsp;
+            <button type="reset" class="btn btn-secondary" (click)="reset()">Reset</button>
+          </div>
+        </form><!-- End Multi Columns Form -->
+
+      </div>
+    </div>
+
+
+  </div>
+</section>

@@ -1,0 +1,14 @@
+<h3>Add Order Status</h3>
+<form [formGroup]="orderstatusFormGroup">
+  Name: &nbsp;<input type="text" pInputText formControlName="name"/>
+  <div *ngIf="orderstatusFormGroup.get('name').touched">
+    <div *ngIf="orderstatusFormGroup.hasError('required',['name'])">
+      Name is required
+    </div>
+
+  </div>
+  <br>
+  <br>
+  <button type="submit" (click)="save()">Save</button>
+ 
+</form>

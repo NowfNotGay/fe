@@ -1,0 +1,16 @@
+<h3>Add Event</h3>
+<form [formGroup]="eventFormGroup">
+  Name: &nbsp;<input type="text" pInputText formControlName="name"/>
+  <div *ngIf="eventFormGroup.get('name').touched">
+    <div *ngIf="eventFormGroup.hasError('required',['name'])">
+      Name is required
+    </div>
+
+  </div>
+  <br>
+  <br>
+  Photo: &nbsp;<p-fileUpload mode="basic" chooseLabel="Choose" formControlName="photo"  accept="image/*" (onUpload)="onUpload($event)"></p-fileUpload>
+  <br>
+  <br>
+  <button type="submit" (click)="save()">Save</button>
+</form>

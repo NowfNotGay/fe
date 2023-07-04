@@ -1,0 +1,35 @@
+<h3>Add Author</h3>
+<form [formGroup]="authorFormGroup">
+  Name: &nbsp;<input type="text" pInputText formControlName="name"/>
+  <div *ngIf="authorFormGroup.get('name').touched">
+    <div *ngIf="authorFormGroup.hasError('required',['name'])">
+      Name is required
+    </div>
+
+  </div>
+  <br>
+  <br>
+  Biography: &nbsp;<p-editor formControlName="biography" [style]="{ height: '200px', width: '200px' }"></p-editor>
+ 
+  <br>
+  <br>
+  YearOfBirth: &nbsp;  <p-inputNumber inputId="integeronly" formControlName="yearOfBirth"></p-inputNumber>
+  <div *ngIf="authorFormGroup.get('yearOfBirth').touched">
+    <div *ngIf="authorFormGroup.hasError('required',['yearOfBirth'])">
+      Year Of Birth is required
+    </div>
+
+  </div>
+  <br>
+  Email: &nbsp;<input type="text" pInputText formControlName="email"/>
+  <div *ngIf="authorFormGroup.get('email').touched">
+    <div *ngIf="authorFormGroup.hasError('required',['email'])">
+      Email is required
+    </div>
+    <div *ngIf="authorFormGroup.hasError('pattern',['email'])">
+      Invalid
+    </div>
+  </div>
+  <button type="submit" (click)="save()">Save</button>
+</form>
+

@@ -1,0 +1,14 @@
+<h3>Add Role</h3>
+<form [formGroup]="roleFormGroup">
+  Name: &nbsp;<input type="text" pInputText formControlName="name"/>
+  <div *ngIf="roleFormGroup.get('name').touched">
+    <div *ngIf="roleFormGroup.hasError('required',['name'])">
+      Name is required
+    </div>
+
+  </div>
+  <br>
+  <br>
+  <button type="submit" (click)="save()">Save</button>
+ 
+</form>
